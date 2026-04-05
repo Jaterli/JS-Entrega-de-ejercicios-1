@@ -12,6 +12,10 @@ body {
     padding: 4px;
 }
 
+#ejercicio-1 {
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe288);
+}
+
 .container {
     max-width: 100%;
     margin: 0 auto;
@@ -258,6 +262,7 @@ input[type=button]:focus, input[type=text]:focus, textarea:focus {
     line-height: 30px;    
     color: #2c3e50;
     margin-bottom: 10px;
+    text-wrap: balance;
 }
 
 
