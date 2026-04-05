@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ejercicio 7: Generador de contraseñas aleatorias seguras con longitud personalizable">
+    <meta name="author" content="Jaterli">
+    <title>Ejercicio 7 - Generador de Contraseñas Aleatorias | Master Full Stack</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="exercise-header">
+            <h1>Ejercicio 7: Generador de Contraseñas Aleatorias</h1>
+            <p>Genera contraseñas seguras y aleatorias con la longitud que elijas</p>
+        </header>
+
+        <main class="exercise-content">
+            <section class="card" aria-label="Generador de contraseñas">
+                <label for="longitud">Longitud de la contraseña
+                <small id="longitud-help">(mínimo 4 caracteres)</small>:</label>
+                <input type="number" id="longitud" min="4" value="12" aria-describedby="longitud-help">               
+                <div class="text-center">
+                    <button id="generar" class="btn" aria-label="Generar nueva contraseña">Generar contraseña</button>
+                </div>
+                <p>&nbsp;</p>
+                <p>Contraseña generada:</p>
+                <div id="password" class="resultado" aria-live="polite" role="status">...</div>
+            </section>
+        </main>
+
+        <nav class="exercise-navigation" aria-label="Navegación entre ejercicios">
+            <a href="../index.html" class="back-link" aria-label="Volver al índice principal">
+                ← Volver al índice
+            </a>
+        </nav>
+    </div>
+    
+    <script src="../js/ejercicio7.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ejercicio 1: Aplicación interactiva que cambia el color de fondo aleatoriamente al hacer clic en un botón">
+    <meta name="author" content="Jaterli">
+    <title>Ejercicio 1 - Cambiador de Color de Fondo | Master Full Stack</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="container">
+
+        <header class="exercise-header">
+            <h1>Ejercicio 1: Cambiador de Color de Fondo</h1>
+            <p>Haz clic en el botón para cambiar el color de fondo de forma aleatoria</p>
+        </header>
+
+        <main class="exercise-content">
+            <section class="card text-center" aria-label="Control del cambiador de color">
+                <div class="color-controls">
+                    <button id="cambiarColor" class="btn btn-primary" aria-label="Generar color aleatorio">
+                        Cambiar Color
+                    </button>
+                </div>
+                
+                <div class="color-info" aria-live="polite">
+                    <p>Color actual: <span id="colorActual" class="color-value">#ffffff</span></p>
+                </div>
+            </section>
+        </main>
+
+        <nav class="exercise-navigation" aria-label="Navegación entre ejercicios">
+            <a href="../index.html" class="back-link" aria-label="Volver al índice principal">
+                ← Volver al índice
+            </a>
+        </nav>
+    </div>
+    
+    <script src="../js/ejercicio1.js"></script>
+</body>
+</html>

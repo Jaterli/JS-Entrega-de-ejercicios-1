@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ejercicio 3: Aplicación interactiva para crear y gestionar una lista dinámica de elementos">
+    <meta name="author" content="Jaterli">
+    <title>Ejercicio 3 - Lista Dinámica | Master Full Stack</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="exercise-header">
+            <h1>Ejercicio 3: Lista Dinámica</h1>
+            <p>Agrega elementos a la lista o vacíala completamente</p>                  
+        </header>
+
+        <main class="exercise-content">
+            <section class="card" aria-label="Controles de la lista dinámica">
+          
+                <div class="lista-controls">
+                    <input 
+                        type="text" 
+                        id="textoInput" 
+                        placeholder="Escribe un elemento..." 
+                        aria-label="Texto del nuevo elemento"
+                    >
+                    <div class="grid-2">
+                        <button id="agregarBtn" class="btn" aria-label="Agregar elemento a la lista">
+                            Agregar
+                        </button>
+                        <button id="vaciarBtn" class="btn btn-danger" aria-label="Eliminar todos los elementos" style="display: none;">
+                            Vaciar Lista
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="lista-container" aria-label="Lista de elementos">
+                <ul id="listaDinamica" class="lista" aria-live="polite">
+                    <!-- Los elementos se agregarán dinámicamente aquí -->
+                </ul>
+            </section>
+        </main>
+
+        <nav class="exercise-navigation" aria-label="Navegación entre ejercicios">
+            <a href="../index.html" class="back-link" aria-label="Volver al índice principal">
+                ← Volver al índice
+            </a>
+        </nav>
+    </div>
+    
+    <script src="../js/ejercicio3.js"></script>
+</body>
+</html>

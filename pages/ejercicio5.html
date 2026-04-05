@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ejercicio 5: Calculadora sencilla que realiza operaciones básicas de suma, resta, multiplicación y división">
+    <meta name="author" content="Jaterli">
+    <title>Ejercicio 5 - Calculadora Sencilla | Master Full Stack</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="exercise-header">
+            <h1>Ejercicio 5: Calculadora Sencilla</h1>
+            <p>Ingresa dos números y selecciona la operación matemática que deseas realizar</p>
+        </header>
+
+        <main class="exercise-content">
+            <section class="card" aria-label="Calculadora de operaciones básicas">
+                <div class="grid-2">
+                    <input type="number" id="num1" placeholder="Número 1" aria-label="Primer número" step="any">
+                    <input type="number" id="num2" placeholder="Número 2" aria-label="Segundo número" step="any">
+                </div>
+                <div class="grid-4" role="group" aria-label="Operaciones matemáticas">
+                    <button id="sumar" class="btn" aria-label="Sumar">Sumar +</button>
+                    <button id="restar" class="btn" aria-label="Restar">Restar -</button>
+                    <button id="multiplicar" class="btn" aria-label="Multiplicar">Multiplicar ×</button>
+                    <button id="dividir" class="btn" aria-label="Dividir">Dividir ÷</button>
+                </div>
+                
+                <div aria-label="Resultado de la operación">
+                    Resultado:
+                </div>
+                <div id="resultado" class="resultado" aria-live="polite" role="status">0</div>
+            </section>
+        </main>
+
+        <nav class="exercise-navigation" aria-label="Navegación entre ejercicios">
+            <a href="../index.html" class="back-link" aria-label="Volver al índice principal">
+                ← Volver al índice
+            </a>
+        </nav>
+    </div>
+    
+    <script src="../js/ejercicio5.js"></script>
+</body>
+</html>
