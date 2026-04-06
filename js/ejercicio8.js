@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const textoArea = document.getElementById('texto');
     const contadorCaracteres = document.getElementById('contadorCaracteres');
     const contadorPalabras = document.getElementById('contadorPalabras');
+    const limpiarBtn = document.getElementById('limpiar');
     
     function actualizarContadores() {
         const texto = textoArea.value;
@@ -19,6 +20,12 @@ document.addEventListener('DOMContentLoaded', function() {
         contadorPalabras.textContent = palabras;
     }
     
+    function limpiarTexto() {
+        textoArea.value = '';
+        actualizarContadores();
+    }
+
     textoArea.addEventListener('input', actualizarContadores);
+    limpiarBtn.addEventListener('click', limpiarTexto);
     actualizarContadores();
 });

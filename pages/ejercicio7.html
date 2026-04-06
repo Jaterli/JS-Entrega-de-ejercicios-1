@@ -18,8 +18,8 @@
         <main class="exercise-content">
             <section class="card" aria-label="Generador de contraseñas">
                 <label for="longitud">Longitud de la contraseña
-                <small id="longitud-help">(mínimo 4 caracteres)</small>:</label>
-                <input type="number" id="longitud" min="4" value="12" aria-describedby="longitud-help">               
+                <small id="longitud-help">(entre 4 y 20 caracteres)</small>:</label>
+                <input type="number" id="longitud" min="4" max="20" value="12" aria-describedby="longitud-help">               
                 <div class="text-center">
                     <button id="generar" class="btn" aria-label="Generar nueva contraseña">Generar contraseña</button>
                 </div>

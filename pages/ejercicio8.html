@@ -18,7 +18,7 @@
         <main class="exercise-content">
             <section class="card" aria-label="Contador de texto interactivo">
                 <div class="text-input-area">
-                    <label for="texto" class="visually-hidden">Área de texto para analizar</label>
+                    <label for="texto">Área de texto para analizar</label>
                     <textarea 
                         id="texto" 
                         rows="6" 
@@ -26,7 +26,6 @@
                         aria-label="Escribe o pega tu texto para contar palabras y caracteres"
                     ></textarea>
                 </div>
-                
                 <div class="stats-container" style="margin-top: 15px;" aria-live="polite">
                     <p>
                         <strong>Caracteres (sin espacios):</strong> 
@@ -37,6 +36,12 @@
                         <span id="contadorPalabras" class="stat-value">0</span>
                     </p>
                 </div>
+                <div class="text-center" style="margin-top: 15px;">
+                    <button id="limpiar" class="btn btn-secondary" value="Limpiar texto" aria-label="Limpiar el área de texto">
+                        Limpiar texto
+                    </button>
+                </div>
+
             </section>
         </main>
 

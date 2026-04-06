@@ -1,6 +1,6 @@
  
 const inputBusqueda = document.getElementById('busqueda');
-const listaElementos = document.getElementById('lista');
+const listaElementos = document.getElementById('listaElementos');
 const noResultadosDiv = document.getElementById('noResultados');
 
 const elementos = [

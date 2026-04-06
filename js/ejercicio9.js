@@ -1,92 +1,90 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const tareaInput = document.getElementById('tareaInput');
-    const agregarBtn = document.getElementById('agregarBtn');
-    const limpiarBtn = document.getElementById('limpiarBtn');
-    const listaTareas = document.getElementById('listaTareas');
-    
-    let tareas = [];
-    
-    function cargarTareas() {
-        const tareasGuardadas = localStorage.getItem('tareas');
-        if (tareasGuardadas) {
-            tareas = JSON.parse(tareasGuardadas);
-            renderizarTareas();
-        }
-    }
-    
-    function guardarTareas() {
+document.addEventListener('DOMContentLoaded', () => {
+    const $ = id => document.getElementById(id);
+
+    const tareaInput = $('tareaInput');
+    const agregarBtn = $('agregarBtn');
+    const limpiarBtn = $('limpiarBtn');
+    const listaTareas = $('listaTareas');
+
+    let tareas = JSON.parse(localStorage.getItem('tareas')) || [];
+
+    const actualizar = () => {
         localStorage.setItem('tareas', JSON.stringify(tareas));
-    }
-    
+        renderizarTareas();
+    };
+
+    const crearElemento = (tag, props = {}) => {
+        const el = document.createElement(tag);
+        Object.assign(el, props);
+        return el;
+    };
+
     function renderizarTareas() {
         listaTareas.innerHTML = '';
+
         tareas.forEach((tarea, index) => {
             const li = document.createElement('li');
-              
-            const checkbox = document.createElement('input');
-            checkbox.type = 'checkbox';
-            checkbox.checked = tarea.completada;
-            checkbox.addEventListener('change', () => {
-                tarea.completada = checkbox.checked;
-                guardarTareas();
-                renderizarTareas();
+
+            const checkbox = crearElemento('input', {
+                type: 'checkbox',
+                checked: tarea.completada
             });
-            
-            const span = document.createElement('span');
-            span.textContent = tarea.texto;
-            span.className = 'lista-texto';
+
+            checkbox.onchange = () => {
+                tarea.completada = checkbox.checked;
+                actualizar();
+            };
+
+            const span = crearElemento('span', {
+                textContent: tarea.texto,
+                className: 'lista-texto'
+            });
+
             if (tarea.completada) {
                 span.style.textDecoration = 'line-through';
                 span.style.opacity = '0.6';
             }
-            
-            const eliminarBtn = document.createElement('button');
-            eliminarBtn.textContent = 'X';
-            eliminarBtn.className = 'btn-danger';
+
+            const eliminarBtn = crearElemento('button', {
+                textContent: 'X',
+                className: 'btn-danger'
+            });
+
             eliminarBtn.onclick = () => {
                 tareas.splice(index, 1);
-                guardarTareas();
-                renderizarTareas();
+                actualizar();
             };
-            
-            li.appendChild(checkbox);
-            li.appendChild(span);
-            li.appendChild(eliminarBtn);
+
+            li.append(checkbox, span, eliminarBtn);
             listaTareas.appendChild(li);
         });
     }
-    
+
     function agregarTarea() {
         const texto = tareaInput.value.trim();
-        if (texto === '') {
-            alert('Por favor, escribe una tarea');
-            return;
-        }
-        
-        tareas.push({
-            texto: texto,
-            completada: false
-        });
-        
-        guardarTareas();
-        renderizarTareas();
+        if (!texto) return alert('Por favor, escribe una tarea');
+
+        tareas.push({ texto, completada: false });
         tareaInput.value = '';
         tareaInput.focus();
+
+        actualizar();
     }
-    
-    function limpiarCompletadas() {
-        tareas = tareas.filter(tarea => !tarea.completada);
-        guardarTareas();
-        renderizarTareas();
-    }
-    
-    agregarBtn.addEventListener('click', agregarTarea);
-    limpiarBtn.addEventListener('click', limpiarCompletadas);
-    tareaInput.addEventListener('keypress', function(e) {
+
+    const limpiarCompletadas = () => {
+        tareas = tareas.filter(t => !t.completada);
+        actualizar();
+    };
+
+    agregarBtn.onclick = agregarTarea;
+    limpiarBtn.onclick = limpiarCompletadas;
+
+    tareaInput.addEventListener('keydown', e => {
         if (e.key === 'Enter') {
+            e.preventDefault();            
             agregarTarea();
         }
     });
-    
-    cargarTareas();
+
+    renderizarTareas();
 });

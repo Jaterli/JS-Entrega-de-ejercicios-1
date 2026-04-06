@@ -33,6 +33,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function iniciar() {
         if (!corriendo) {
+            // Asegurarse de que no haya intervalos previos
+            if (intervalo) clearInterval(intervalo);
             intervalo = setInterval(incrementarTiempo, 1000);
             corriendo = true;
             actualizarEstado('▶ En marcha...');

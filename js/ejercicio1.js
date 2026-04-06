@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     cambiarColorBtn.addEventListener('click', function() {
-        document.body.style.backgroundColor = getRandomColor();
-        document.getElementById('colorActual').textContent = getRandomColor();
+        const nuevoColor = getRandomColor();
+        document.body.style.backgroundColor = nuevoColor;
+        document.getElementById('colorActual').textContent = nuevoColor;
     });
 });

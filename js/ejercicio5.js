@@ -8,8 +8,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const valor2 = parseFloat(num2.value);
         
         if (isNaN(valor1) || isNaN(valor2)) {
+            resultadoDiv.style.color = '#e74c3c';
             resultadoDiv.textContent = 'Error: Por favor ingrese números válidos';
             return null;
+        } else {
+            resultadoDiv.style.color = '';
         }
         
         return { valor1, valor2 };
@@ -40,8 +43,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const nums = obtenerNumeros();
         if (nums) {
             if (nums.valor2 === 0) {
+                resultadoDiv.style.color = '#e74c3c';
                 resultadoDiv.textContent = 'Error: No se puede dividir por cero';
             } else {
+                resultadoDiv.style.color = '';
                 resultadoDiv.textContent =  (nums.valor1 / nums.valor2);
             }
         }
